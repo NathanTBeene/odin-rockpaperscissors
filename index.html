@@ -4,8 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <script src="/index.js" defer></script>
+  <link rel="stylesheet" href="/styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <script src="/index.js"></script>
+
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Rock Paper Scissors</h1>
+      <p>Test your luck against this rock paper scissors machine. Simply click a button below to start the game. You will also see your points tallied below.</p>
+    </header>
+    <div class="game-container">
+      <div class="answer-container">
+        <h2 class="answer-title">Computer Answer:</h2>
+        <h2 class="answer"></h2>
+      </div>
+      <div class="result-container">
+        <h2 class="result"></h2>
+      </div>
+      <div class="score-container">
+        <div class="score-item">
+          <h2 class="score-title">Wins</h2>
+          <p class="score-info win"></p>
+        </div>
+        <div class="score-item">
+          <h2 class="score-title">Losses</h2>
+          <p class="score-info loss"></p>
+        </div>
+        <div class="score-item">
+          <h2 class="score-title">Ties</h2>
+          <p class="score-info tie"></p>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="btn rock">Rock</button>
+      <button class="btn paper">Paper</button>
+      <button class="btn scissors">Scissors</button>
+    </div>
+  </main>
+
 </body>
 </html>

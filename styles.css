@@ -1,0 +1,120 @@
+*,
+*:before,
+*:after {
+
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
+
+:root {
+
+  font-size: 62.5%;
+
+  /* Fonts and Weights */
+  --ff-primary: 'Nunito', sans-serif;
+  --ff-secondary: 'PT Sans', sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* Colors */
+  --clr-background: #13242a;
+  --clr-primary: #3eb3ca;
+  --clr-secondary: #18314c;
+  --clr-white: #f6f9fb;
+}
+
+html{
+  background-color: var(--clr-background);
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: var(--ff-primary);
+  color:var(--clr-white);
+}
+
+h1,h2,h3,h4 {
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-bold);
+  color:var(--clr-primary);
+}
+
+p{
+  font-family: var(--ff-primary);
+  max-width: 60ch;
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.title{
+  text-align: center;
+  font-size: 6rem;
+}
+
+.game-container{
+  display:flex;
+  flex-direction: column;
+  min-height: 300px;
+  max-width: 800px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  padding: 5rem;
+}
+
+.answer-title{
+  color: var(--clr-white);
+  font-size: 4rem;
+}
+
+.answer{
+  color: var(--clr-white);
+  font-size: 4rem;
+  text-align: center;
+}
+
+.result{
+  color: var(--clr-primary);
+  font-size: 4rem;
+}
+
+.score-container{
+  display:flex;
+  gap: 3rem;
+  font-size: 2rem;
+}
+
+.button-container{
+  display:flex;
+  gap: 2rem;
+}
+
+.btn{
+  font-family: var(--ff-secondary);
+  width: 30rem;
+  font-size: 4rem;
+  padding: 1.6rem 4.2rem;
+  border: solid 1px var(--clr-secondary);
+  border-radius: .8rem;
+  background-color: var(--clr-secondary);
+  color:var(--clr-white);
+  font-weight: var(--fw-bold);
+
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  background: var(--clr-primary);
+}

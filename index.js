@@ -1,3 +1,17 @@
+let playerChoice;
+let computerChoice;
+
+let wins = 0;
+let losses = 0;
+let ties = 0;
+let answer;
+
+const winScore = document.querySelector('.win');
+const lossScore = document.querySelector('.loss');
+const tieScore = document.querySelector('.tie');
+const answerText = document.querySelector('.answer');
+const resultText = document.querySelector('.result');
+
 //Generate random number function
 function getRandomNumber(max){
 
@@ -11,13 +25,13 @@ function getComputerChoice(){
   let rand = getRandomNumber(3);
   switch (rand){
     case 0:
-      console.log("Computer: Rock");
+      answer = "Rock"
       break;
     case 1:
-      console.log("Computer: Paper");
+      answer = "Paper"
       break;
     case 2:
-      console.log("Computer: Scissors");
+      answer = "Scissors"
       break;
   }
 
@@ -45,33 +59,75 @@ function convertPlayerChoice(choice){
 
 }
 
+function updateWinLossTie(){
+  winScore.textContent = wins;
+  lossScore.textContent = losses;
+  tieScore.textContent = ties;
+}
+
+function updateAnswer(){
+  answerText.textContent = answer;
+}
+
 function round(player,computer){
 
   if (player == 0 && computer == 0) {
-    return "Tie";
+    ties += 1;
+    resultText.textContent =  "Tie";  
   } else if (player == 0 && computer == 1) {
-    return "You lose! Paper beats rock.";
+    losses +=1;
+    resultText.textContent = "You lose! Paper beats rock.";
   } else if (player == 0 && computer == 2) {
-    return "You win! Rock beats scissors.";
+    wins += 1;
+    resultText.textContent = "You win! Rock beats scissors.";
   } else if (player == 1 && computer == 0) {
-    return "You win! Paper beats rock.";
+    wins += 1;
+    resultText.textContent = "You win! Paper beats rock.";
   } else if (player == 1 && computer == 1) {
-    return "Tie";
+    ties += 1;
+    resultText.textContent = "Tie";
   } else if (player == 1 && computer == 2) {
-    return "You lose! Scissors beats paper.";
+    losses +=1;
+    resultText.textContent = "You lose! Scissors beats paper.";
   } else if (player == 2 && computer == 0) {
-    return "You lose! Rock beats scissors.";
+    losses +=1;
+    resultText.textContent = "You lose! Rock beats scissors.";
   } else if (player == 2 && computer == 1) {
-    return "You win! Scissors beats paper.";
+    wins += 1;
+    resultText.textContent = "You win! Scissors beats paper.";
   } else if (player == 2 && computer == 2) {
-    return "Tie";
+    ties += 1;
+    resultText.textContent = "Tie";
   } else {
-    return "You're answer was undefined."
+    resultText.textContent = "You're answer was undefined."
   }
 
 }
 
-let playerChoice = getComputerChoice();
-let computerChoice = getComputerChoice();
+updateWinLossTie();
 
-console.log(round(playerChoice,computerChoice));
+const btnRock = document.querySelector(".rock");
+const btnPaper = document.querySelector(".paper");
+const btnScissors = document.querySelector(".scissors");
+
+btnRock.onclick = () => {
+  playerChoice = 0;
+  computerChoice = getComputerChoice();
+  updateAnswer();
+  console.log(round(playerChoice,computerChoice));
+  updateWinLossTie();
+}
+btnPaper.onclick = () => {
+  playerChoice = 1;
+  computerChoice = getComputerChoice();
+  updateAnswer();
+  round(playerChoice,computerChoice);
+  updateWinLossTie();
+}
+btnScissors.onclick = () => {
+  playerChoice = 2;
+  computerChoice = getComputerChoice();
+  updateAnswer();
+  round(playerChoice,computerChoice);
+  updateWinLossTie();
+}
